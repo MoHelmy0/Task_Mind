@@ -82,7 +82,7 @@ lib/
 **Mohamed Helmy**
 
 * GitHub: https://github.com/your-username
-* LinkedIn: (Add your link)
+* LinkedIn: https://www.linkedin.com/in/mohamed-helmy-917028375/
 
 ---
 
