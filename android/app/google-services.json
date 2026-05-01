@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "987775926760",
+    "project_id": "task-mind-b9d02",
+    "storage_bucket": "task-mind-b9d02.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987775926760:android:4ce8c05c6c181768a7645d",
+        "android_client_info": {
+          "package_name": "com.example.task_mind"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnTnNOaFgP4UhH-ZduYNmE7Sxc751ixCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
