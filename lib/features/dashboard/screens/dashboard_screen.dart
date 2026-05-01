@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:task_mind/core/theme/app_theme.dart';
-import 'package:task_mind/features/auth/controllers/auth_controller.dart';
 
 class DashboardScreen extends ConsumerWidget {
   const DashboardScreen({super.key});
@@ -11,7 +10,7 @@ class DashboardScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      backgroundColor: AppColors.deepNavy,
+      backgroundColor: Colors.transparent, // Because it's inside MainNavigationScreen
       body: Stack(
         children: [
           _buildBackgroundGlows(),
@@ -22,12 +21,12 @@ class DashboardScreen extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 20.h),
-                  _buildHeader(ref),
+                  _buildHeader(context),
                   SizedBox(height: 30.h),
                   _buildDailyProgressCard(),
                   SizedBox(height: 30.h),
                   Text(
-                    "Today's Focus",
+                    "Today's Tasks", // Updated title
                     style: TextStyle(
                       fontSize: 22.sp,
                       fontWeight: FontWeight.bold,
@@ -38,6 +37,7 @@ class DashboardScreen extends ConsumerWidget {
                   Expanded(
                     child: _buildTaskPlaceholder(),
                   ),
+                  SizedBox(height: 100.h), // Space for bottom bar
                 ],
               ),
             ),
@@ -47,7 +47,7 @@ class DashboardScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildHeader(WidgetRef ref) {
+  Widget _buildHeader(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -71,8 +71,11 @@ class DashboardScreen extends ConsumerWidget {
             ),
           ],
         ),
+        // Profile Button instead of Logout
         GestureDetector(
-          onTap: () => ref.read(authControllerProvider.notifier).logout(),
+          onTap: () {
+            // TODO: Navigate to Profile
+          },
           child: GlassmorphicContainer(
             width: 45.w,
             height: 45.h,
@@ -86,7 +89,7 @@ class DashboardScreen extends ConsumerWidget {
             borderGradient: LinearGradient(
               colors: [AppColors.accentIndigo.withValues(alpha: 0.5), AppColors.emerald.withValues(alpha: 0.5)],
             ),
-            child: const Icon(Icons.logout_rounded, color: Colors.white, size: 20),
+            child: const Icon(Icons.person_outline_rounded, color: Colors.white, size: 24),
           ),
         ),
       ],
